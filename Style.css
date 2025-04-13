@@ -1,0 +1,262 @@
+/* Reset and Globals */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loader img {
+  width: 120px;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+/* Cursor */
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: #00ffd0;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+/* Header */
+header {
+  width: 100%;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: background 0.4s ease;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ffd0;
+  transition: width 0.4s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+nav ul li a:hover {
+  color: #00ffd0;
+  font-weight: 600;
+  transform: scale(1.1);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+nav ul li a.active {
+  color: #00ffd0;
+  font-weight: 700;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.home-section {
+  background: url('assets/home-bg.png') no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.home-section .content {
+  position: relative;
+  z-index: 2;
+}
+
+.mission-section {
+  background-color: #1a1a1a;
+}
+#particles-mission {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.careers-section {
+  background-color: #111827;
+}
+#particles-career {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.contact-section {
+  background-color: #0f172a;
+}
+#particles-contact {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.content h1, .content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.content p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  background: rgba(0,0,0,0.7);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
